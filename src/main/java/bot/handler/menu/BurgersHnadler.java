@@ -32,7 +32,8 @@ public class BurgersHnadler {
                 "Цена: 23 000  сум");
         bot.execute(sendPhoto);
     }
-    public static void barbekyuBurger(Message message,TelegramLongPollingBot bot) throws TelegramApiException {
+
+    public static void barbekyuBurger(Message message, TelegramLongPollingBot bot) throws TelegramApiException {
         SendPhoto sendPhoto = new SendPhoto();
         sendPhoto.setChatId(message.getChatId());
         sendPhoto.setPhoto(new InputFile(new File("src/main/resources/Burgers/telegram-cloud-photo-size-2-5361768401766305297-x.jpg")));
@@ -43,6 +44,7 @@ public class BurgersHnadler {
                 "Цена: 24 000  сум");
         bot.execute(sendPhoto);
     }
+
     public static void dablBurger(Message message, TelegramLongPollingBot bot) throws TelegramApiException {
         SendPhoto sendPhoto = new SendPhoto();
         sendPhoto.setChatId(message.getChatId());
