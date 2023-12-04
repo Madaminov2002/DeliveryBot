@@ -31,8 +31,18 @@ public class CommandHandler {
                 .keyboardRow(new KeyboardRow(List.of(
                         KeyboardButton.builder().text("Menu").build()))).build();
         replyKeyboardMarkup.setResizeKeyboard(true);
-        SendMessage sendMessage = new SendMessage(message.getChatId().toString(), "Delivery");
+        SendMessage sendMessage = new SendMessage(message.getChatId().toString(), "Delivery \uD83D\uDE9A");
         sendMessage.setReplyMarkup(replyKeyboardMarkup);
         bot.execute(sendMessage);
+    }
+    public static InlineKeyboardMarkup productMurkup(int quantity, long prductId){
+        InlineKeyboardMarkup build = InlineKeyboardMarkup.builder()
+                .keyboardRow(List.of(
+                        InlineKeyboardButton.builder().text("-").callbackData("-;" + quantity +";"+ prductId).build()
+                        , InlineKeyboardButton.builder().text(String.valueOf(quantity)).callbackData("num").build()
+                        , InlineKeyboardButton.builder().text("+").callbackData("+;" + quantity +";"+ prductId).build()))
+                .keyboardRow(List.of(InlineKeyboardButton.builder().text("Add to basket ✅").callbackData("basket;" +prductId+";"+quantity).build()))
+                .build();
+        return build;
     }
 }

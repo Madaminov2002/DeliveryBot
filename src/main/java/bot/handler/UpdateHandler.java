@@ -9,6 +9,8 @@ public class UpdateHandler {
     public static void handle(final Update update, final TelegramLongPollingBot bot) throws TelegramApiException {
         if (update.hasMessage()) {
             MessageHandler.handle(update.getMessage(),bot);
+        } else if (update.hasCallbackQuery()) {
+            CallbackQueryHandler.handle(update.getCallbackQuery(),bot);
         }
     }
 }
